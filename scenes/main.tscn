@@ -8,6 +8,20 @@ size = Vector3(60, 2, 60)
 [sub_resource type="BoxMesh" id="BoxMesh_fxkdy"]
 size = Vector3(60, 2, 60)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5qli"]
+albedo_color = Color(0.85490197, 0.2901961, 0.3137255, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fxkdy"]
+material = SubResource("StandardMaterial3D_o5qli")
+
+[sub_resource type="Curve3D" id="Curve3D_o5qli"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15, 0, -15, 0, 0, 0, 0, 0, 0, -15, 0, 15, 0, 0, 0, 0, 0, 0, 15, 0, 15, 0, 0, 0, 0, 0, 0, 15, 0, -15),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
 [node name="Main" type="Node" unique_id=1979155718]
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=2031715852]
@@ -33,3 +47,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
 projection = 1
 size = 19.0
 far = 100.0
+
+[node name="Cylinders" type="Node3D" parent="." unique_id=1998694972]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cylinders" unique_id=1973889441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -15)
+mesh = SubResource("CylinderMesh_fxkdy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cylinders" unique_id=1832858063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 15)
+mesh = SubResource("CylinderMesh_fxkdy")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Cylinders" unique_id=1137450318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
+mesh = SubResource("CylinderMesh_fxkdy")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Cylinders" unique_id=319716104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15)
+mesh = SubResource("CylinderMesh_fxkdy")
+
+[node name="SpawnPath" type="Path3D" parent="." unique_id=349115259]
+curve = SubResource("Curve3D_o5qli")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath" unique_id=2116668052]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -15, 0, -15)
