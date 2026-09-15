@@ -9,10 +9,10 @@ radius = 0.7
 [node name="Player" type="CharacterBody3D" unique_id=75498350]
 script = ExtResource("1_g2els")
 
-[node name="Pivot" type="Node" parent="." unique_id=1583365499]
+[node name="Pivot" type="Node3D" parent="." unique_id=1337094159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
 [node name="Character" parent="Pivot" unique_id=690451601 instance=ExtResource("1_3vyb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1283373922]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
