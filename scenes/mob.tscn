@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bojine61vg4e"]
 
 [ext_resource type="PackedScene" uid="uid://bicorb7we351t" path="res://art/mob.glb" id="1_4are2"]
+[ext_resource type="Script" uid="uid://csj65kkc26eon" path="res://scripts/mob.gd" id="1_bsing"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxkdy"]
 size = Vector3(2, 1, 2)
 
 [node name="Mob" type="CharacterBody3D" unique_id=1960695533]
+script = ExtResource("1_bsing")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=464594906]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
