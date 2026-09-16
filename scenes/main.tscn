@@ -75,3 +75,9 @@ curve = SubResource("Curve3D_o5qli")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath" unique_id=2116668052]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15, 0, -15)
+
+[node name="MobTimer" type="Timer" parent="." unique_id=102207361]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
