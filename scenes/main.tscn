@@ -30,6 +30,8 @@ mob_scene = ExtResource("2_sugp2")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=2031715852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=942674242]
 shape = SubResource("BoxShape3D_sgp6g")
@@ -42,6 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.965
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=75498350 instance=ExtResource("1_o5qli")]
+collision_mask = 6
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=1386518257]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
