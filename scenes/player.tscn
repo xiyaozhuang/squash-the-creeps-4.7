@@ -6,6 +6,10 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_fxkdy"]
 radius = 0.7
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fxkdy"]
+height = 0.2
+radius = 1.0
+
 [node name="Player" type="CharacterBody3D" unique_id=75498350]
 script = ExtResource("1_g2els")
 
@@ -17,3 +21,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1283373922]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("SphereShape3D_fxkdy")
+
+[node name="MobDetector" type="Area3D" parent="." unique_id=1629741562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MobDetector" unique_id=164979837]
+shape = SubResource("CylinderShape3D_fxkdy")
+
+[connection signal="body_entered" from="MobDetector" to="." method="_on_mob_detector_body_entered"]
