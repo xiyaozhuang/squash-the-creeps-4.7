@@ -30,3 +30,5 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MobDetector" unique_id=164979837]
 shape = SubResource("CylinderShape3D_fxkdy")
+
+[connection signal="body_entered" from="MobDetector" to="." method="_on_mob_detector_body_entered"]
