@@ -64,6 +64,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimationPlayer.speed_scale = 1
 
+	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
+
 
 func die() -> void:
 	hit.emit()
