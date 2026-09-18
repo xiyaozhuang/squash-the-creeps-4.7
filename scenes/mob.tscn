@@ -6,6 +6,40 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxkdy"]
 size = Vector3(2, 1, 2)
 
+[sub_resource type="Animation" id="Animation_bsing"]
+resource_name = "float"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 1.2),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.65, 0), Vector3(0, 0.35, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Character:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 1.2),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.13962634, 0, 0), Vector3(-0.15707964, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d4cuo"]
+_data = {
+&"float": SubResource("Animation_bsing")
+}
+
 [node name="Mob" type="CharacterBody3D" unique_id=1960695533 groups=["mob"]]
 collision_layer = 2
 collision_mask = 2
@@ -15,6 +49,7 @@ script = ExtResource("1_bsing")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="Character" parent="Pivot" unique_id=871722119 instance=ExtResource("1_4are2")]
+transform = Transform3D(1, 0, 0, 0, 0.99666655, -0.08158288, 0, 0.08158288, 0.99666655, 0, 0.06731576, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=899100571]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -23,5 +58,9 @@ shape = SubResource("BoxShape3D_fxkdy")
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=979937588]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.3)
 aabb = AABB(-1.2, -0.7, -1.7, 2.4, 1.4, 3.4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=930999068]
+libraries/ = SubResource("AnimationLibrary_d4cuo")
+autoplay = &"float"
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
