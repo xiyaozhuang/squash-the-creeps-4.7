@@ -3,6 +3,15 @@ extends Node
 @export var mob_scene: PackedScene
 
 
+func _ready() -> void:
+	$UserInterface/Retry.hide()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept") and $UserInterface/Retry.visible:
+		get_tree().reload_current_scene()
+
+
 func _on_mob_timer_timeout() -> void:
 	var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
 	mob_spawn_location.progress_ratio = randf()
@@ -18,3 +27,4 @@ func _on_mob_timer_timeout() -> void:
 
 func _on_player_hit() -> void:
 	$MobTimer.stop()
+	$UserInterface/Retry.show()
