@@ -13,6 +13,8 @@ func _on_mob_timer_timeout() -> void:
 
 	add_child(mob)
 
+	mob.squashed.connect($UserInterface/ScoreLabel.on_mob_squashed.bind())
+
 
 func _on_player_hit() -> void:
 	$MobTimer.stop()
