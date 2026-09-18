@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://e4emqaydk7mc" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bojine61vg4e" path="res://scenes/mob.tscn" id="2_sugp2"]
 [ext_resource type="FontFile" uid="uid://cyxhh7ddkn62q" path="res://fonts/Montserrat-Medium.ttf" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://ck43fkfwk2mwh" path="res://scripts/score_label.gd" id="5_tbgi4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
 size = Vector3(60, 2, 60)
@@ -103,6 +104,7 @@ offset_right = 96.0
 offset_bottom = 36.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Score: 0"
+script = ExtResource("5_tbgi4")
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
