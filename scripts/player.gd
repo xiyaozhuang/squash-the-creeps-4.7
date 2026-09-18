@@ -58,6 +58,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	if direction != Vector3.ZERO:
+		$AnimationPlayer.speed_scale = 4
+
+	else:
+		$AnimationPlayer.speed_scale = 1
+
 
 func die() -> void:
 	hit.emit()
